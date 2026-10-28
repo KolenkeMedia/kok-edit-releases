@@ -1,0 +1,31 @@
+{
+  "version": "1.2.4",
+  "channel": "test",
+  "date": "2026-10-28T08:35:48.538Z",
+  "notes": [
+    "После входа или продления сразу открываются модули",
+    "Вход по почте и постоянному паролю"
+  ],
+  "restart": false,
+  "components": {
+    "ffmpeg": {
+      "key": "10a2e045a898beb6db89abb7b4daa6043ab3231ffe536262801c03b879f7250c",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/ffmpeg-10a2e045a8.zip",
+      "sha256": "3414860c0523866b3117edcaa9756e7715e220784c223a71c7236f43c1ad563d",
+      "size": 57857487
+    },
+    "whisper": {
+      "key": "086bf8d237ac0dadc8ae54af069ed3517329d3346ef39130151332d3a91f6d61",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/whisper-086bf8d237.zip",
+      "sha256": "743572b080eafd6069e4bd64ad73f6c94a9c542e6018f871aac8dc1925f473b1",
+      "size": 3563629
+    },
+    "core": {
+      "key": "6a3bcae4071b73b6ee472a5a80d9c0ba99e54e9df8620b4922fdaeff87a80583",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/core-1.2.4.zip",
+      "sha256": "40ee57cd2229629593067e1e8b0bb26b4f492d918318047c242bc2763b328779",
+      "size": 128708,
+      "files": 32
+    }
+  }
+}
