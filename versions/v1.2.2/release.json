@@ -1,0 +1,31 @@
+{
+  "version": "1.2.2",
+  "channel": "test",
+  "date": "2026-10-28T07:21:37.384Z",
+  "notes": [
+    "Заметнее ссылка «аккаунт» внизу главного экрана",
+    "Проверка: обновление по кнопке"
+  ],
+  "restart": false,
+  "components": {
+    "ffmpeg": {
+      "key": "10a2e045a898beb6db89abb7b4daa6043ab3231ffe536262801c03b879f7250c",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/ffmpeg-10a2e045a8.zip",
+      "sha256": "3414860c0523866b3117edcaa9756e7715e220784c223a71c7236f43c1ad563d",
+      "size": 57857487
+    },
+    "whisper": {
+      "key": "086bf8d237ac0dadc8ae54af069ed3517329d3346ef39130151332d3a91f6d61",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/whisper-086bf8d237.zip",
+      "sha256": "743572b080eafd6069e4bd64ad73f6c94a9c542e6018f871aac8dc1925f473b1",
+      "size": 3563629
+    },
+    "core": {
+      "key": "84438140e79f95a1938fee50c8c91bd32f5ef5a93ef335ea11bb9d0f8bfa9567",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/core-1.2.2.zip",
+      "sha256": "a411ea9950f12cc78b1263cac4a85e61072ef21edef5606427b5a8fc19ac41c1",
+      "size": 128420,
+      "files": 32
+    }
+  }
+}
