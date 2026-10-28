@@ -1,8 +1,8 @@
 {
-  "version": "1.2.2",
-  "tag": "v1.2.2",
-  "release": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/versions/v1.2.2/release.json",
-  "sig": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/versions/v1.2.2/release.sig",
-  "date": "2026-10-28T07:21:37.384Z",
-  "promotedAt": "2026-10-28T07:24:12.228Z"
+  "version": "1.2.5",
+  "tag": "v1.2.5",
+  "release": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/versions/v1.2.5/release.json",
+  "sig": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/versions/v1.2.5/release.sig",
+  "date": "2026-10-28T11:12:45.031Z",
+  "promotedAt": "2026-10-28T11:19:38.981Z"
 }
