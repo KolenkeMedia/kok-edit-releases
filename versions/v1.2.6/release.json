@@ -1,0 +1,30 @@
+{
+  "version": "1.2.6",
+  "channel": "test",
+  "date": "2026-10-28T13:23:39.619Z",
+  "notes": [
+    "Субтитры: перевод на казахский, русский или английский — тайминги те же, оригинал сохраняется в .srt"
+  ],
+  "restart": false,
+  "components": {
+    "ffmpeg": {
+      "key": "10a2e045a898beb6db89abb7b4daa6043ab3231ffe536262801c03b879f7250c",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/ffmpeg-10a2e045a8.zip",
+      "sha256": "3414860c0523866b3117edcaa9756e7715e220784c223a71c7236f43c1ad563d",
+      "size": 57857487
+    },
+    "whisper": {
+      "key": "086bf8d237ac0dadc8ae54af069ed3517329d3346ef39130151332d3a91f6d61",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/whisper-086bf8d237.zip",
+      "sha256": "743572b080eafd6069e4bd64ad73f6c94a9c542e6018f871aac8dc1925f473b1",
+      "size": 3563629
+    },
+    "core": {
+      "key": "015b208911e06f96da16e69d7349d2dbe5cad4fc2df9fbbc0410d17d1cc6aef7",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/core-1.2.6.zip",
+      "sha256": "47f66f4e94a1cbf658b702ec087b4c372a6d14901ef7c42fedf566b35262e062",
+      "size": 129998,
+      "files": 32
+    }
+  }
+}
