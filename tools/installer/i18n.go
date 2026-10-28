@@ -20,13 +20,16 @@ type texts struct {
 
 var langs = []string{"ru", "kk", "en", "uz", "ky"}
 
+// название языка на нём самом — для списка
+var langNames = map[string]string{"ru": "Русский", "kk": "Қазақша", "en": "English", "uz": "O‘zbekcha", "ky": "Кыргызча"}
+
 var T = map[string]texts{
 	"ru": {
 		Name: "kök Edit", Title: "Установка kök Edit", Checking: "Проверяю последнюю версию…", CheckingSub: "Это займёт пару секунд.",
 		Install: "Установить", Update: "Обновить", Reinstall: "Переустановить", Cancel: "Отмена", Close: "Закрыть", Done: "Готово", Retry: "Повторить",
 		Lang:        "Язык: Русский",
 		WelcomeMain: "kök Edit %s для Premiere Pro", WelcomeText: "Синхронизация, AutoCam, паузы, звук, субтитры на казахском и русском, нарезки и проверка перед сдачей.",
-		Requires: "Нужен Premiere Pro 2022–2025 на Windows", Size: "Скачается ≈ %s МБ.", NoAdmin: "Права администратора не нужны.",
+		Requires: "Нужен Premiere Pro 2022 или новее на Windows", Size: "Скачается ≈ %s МБ.", NoAdmin: "Права администратора не нужны.",
 		UpdateMain: "Обновить kök Edit до %s", UpdateText: "Сейчас стоит версия %s. Настройки и вход в аккаунт сохранятся.",
 		SameMain: "У вас уже последняя версия %s", SameText: "Ничего делать не нужно. «Переустановить» — если плагин работает с ошибками.",
 		Working: "Устанавливаю…", Downloading: "Скачиваю %s", Plugin: "плагин", FFmpeg: "ffmpeg (обработка звука и видео)", Installing: "Устанавливаю файлы…",
@@ -42,7 +45,7 @@ var T = map[string]texts{
 		Install: "Орнату", Update: "Жаңарту", Reinstall: "Қайта орнату", Cancel: "Болдырмау", Close: "Жабу", Done: "Дайын", Retry: "Қайталау",
 		Lang:        "Тіл: Қазақша",
 		WelcomeMain: "Premiere Pro үшін kök Edit %s", WelcomeText: "Синхрондау, AutoCam, үзілістер, дыбыс, қазақша және орысша субтитрлер, қысқа видеолар және тапсыру алдындағы тексеру.",
-		Requires: "Windows жүйесінде Premiere Pro 2022–2025 керек", Size: "≈ %s МБ жүктеледі.", NoAdmin: "Әкімші құқығы қажет емес.",
+		Requires: "Windows жүйесінде Premiere Pro 2022 не жаңарақ нұсқасы керек", Size: "≈ %s МБ жүктеледі.", NoAdmin: "Әкімші құқығы қажет емес.",
 		UpdateMain: "kök Edit-ті %s нұсқасына жаңарту", UpdateText: "Қазір %s нұсқасы тұр. Баптаулар мен аккаунтқа кіру сақталады.",
 		SameMain: "Сізде соңғы нұсқа тұр: %s", SameText: "Ештеңе істеудің қажеті жоқ. Плагин қатемен істесе — «Қайта орнату».",
 		Working: "Орнатып жатырмын…", Downloading: "Жүктеп жатырмын: %s", Plugin: "плагин", FFmpeg: "ffmpeg (дыбыс пен видеоны өңдеу)", Installing: "Файлдарды орнатып жатырмын…",
@@ -58,7 +61,7 @@ var T = map[string]texts{
 		Install: "Install", Update: "Update", Reinstall: "Reinstall", Cancel: "Cancel", Close: "Close", Done: "Done", Retry: "Retry",
 		Lang:        "Language: English",
 		WelcomeMain: "kök Edit %s for Premiere Pro", WelcomeText: "Sync, AutoCam, pause removal, audio cleanup, Kazakh and Russian subtitles, short clips and pre-delivery checks.",
-		Requires: "Requires Premiere Pro 2022–2025 on Windows", Size: "Download size ≈ %s MB.", NoAdmin: "No administrator rights needed.",
+		Requires: "Requires Premiere Pro 2022 or later on Windows", Size: "Download size ≈ %s MB.", NoAdmin: "No administrator rights needed.",
 		UpdateMain: "Update kök Edit to %s", UpdateText: "Version %s is installed now. Your settings and sign-in will be kept.",
 		SameMain: "You already have the latest version, %s", SameText: "Nothing to do. Use “Reinstall” if the plugin isn't working properly.",
 		Working: "Installing…", Downloading: "Downloading %s", Plugin: "plugin", FFmpeg: "ffmpeg (audio and video processing)", Installing: "Installing files…",
@@ -74,7 +77,7 @@ var T = map[string]texts{
 		Install: "O‘rnatish", Update: "Yangilash", Reinstall: "Qayta o‘rnatish", Cancel: "Bekor qilish", Close: "Yopish", Done: "Tayyor", Retry: "Qayta urinish",
 		Lang:        "Til: O‘zbekcha",
 		WelcomeMain: "Premiere Pro uchun kök Edit %s", WelcomeText: "Sinxronlash, AutoCam, pauzalarni olib tashlash, ovoz, qozoq va rus tilidagi subtitrlar, qisqa videolar va topshirishdan oldingi tekshiruv.",
-		Requires: "Windows’da Premiere Pro 2022–2025 kerak", Size: "≈ %s MB yuklab olinadi.", NoAdmin: "Administrator huquqlari kerak emas.",
+		Requires: "Windows’da Premiere Pro 2022 yoki yangiroq versiyasi kerak", Size: "≈ %s MB yuklab olinadi.", NoAdmin: "Administrator huquqlari kerak emas.",
 		UpdateMain: "kök Edit’ni %s versiyasiga yangilash", UpdateText: "Hozir %s versiyasi o‘rnatilgan. Sozlamalar va hisobga kirish saqlanadi.",
 		SameMain: "Sizda eng so‘nggi versiya o‘rnatilgan: %s", SameText: "Hech narsa qilish shart emas. Plagin xato bilan ishlasa — «Qayta o‘rnatish».",
 		Working: "O‘rnatilmoqda…", Downloading: "Yuklab olinmoqda: %s", Plugin: "plagin", FFmpeg: "ffmpeg (ovoz va videoni qayta ishlash)", Installing: "Fayllar o‘rnatilmoqda…",
@@ -90,7 +93,7 @@ var T = map[string]texts{
 		Install: "Орнотуу", Update: "Жаңыртуу", Reinstall: "Кайра орнотуу", Cancel: "Жокко чыгаруу", Close: "Жабуу", Done: "Даяр", Retry: "Кайталоо",
 		Lang:        "Тил: Кыргызча",
 		WelcomeMain: "Premiere Pro үчүн kök Edit %s", WelcomeText: "Синхрондоо, AutoCam, тыныгууларды кесүү, үн, казакча жана орусча субтитрлер, кыска видеолор жана тапшыруу алдындагы текшерүү.",
-		Requires: "Windows’то Premiere Pro 2022–2025 керек", Size: "≈ %s МБ жүктөлөт.", NoAdmin: "Администратордун укугу керек эмес.",
+		Requires: "Windows’то Premiere Pro 2022 же жаңыраак версиясы керек", Size: "≈ %s МБ жүктөлөт.", NoAdmin: "Администратордун укугу керек эмес.",
 		UpdateMain: "kök Edit’ти %s версиясына жаңыртуу", UpdateText: "Азыр %s версиясы орнотулган. Жөндөөлөр жана аккаунтка кирүү сакталат.",
 		SameMain: "Сизде акыркы версия орнотулган: %s", SameText: "Эч нерсе кылуунун кереги жок. Плагин ката менен иштесе — «Кайра орнотуу».",
 		Working: "Орнотулууда…", Downloading: "Жүктөлүүдө: %s", Plugin: "плагин", FFmpeg: "ffmpeg (үн жана видеону иштетүү)", Installing: "Файлдар орнотулууда…",

@@ -282,7 +282,7 @@ func pWelcome() page {
 		p.content = fmt.Sprintf(l.UpdateText, instVer) + "\n\n" + fmt.Sprintf(l.Size, mb(downloadSize()))
 		p.buttons = []btn{{bPrimary, l.Update}}
 	}
-	p.buttons = append([]btn{{bLang, l.Lang}}, p.buttons...)
+	p.buttons = append([]btn{{bLang, l.Lang + " ▾"}}, p.buttons...)
 	p.footer = l.Requires
 	return p
 }
@@ -397,13 +397,10 @@ func installerEvent(hwnd uintptr, msg uint32, wp, lp uintptr) uintptr {
 		id := int(wp)
 		switch id {
 		case bLang:
-			for i, x := range langs {
-				if x == lang {
-					lang = langs[(i+1)%len(langs)]
-					break
-				}
+			if l := pickLang(hwnd); l != "" && l != lang {
+				lang = l
+				goPage(hwnd, current)
 			}
-			goPage(hwnd, current)
 			return 1
 		case bPrimary:
 			if instVer == rel.Version {
@@ -441,13 +438,10 @@ func installerEvent(hwnd uintptr, msg uint32, wp, lp uintptr) uintptr {
 func uninstallUI() {
 	onEvent = func(hwnd uintptr, msg uint32, wp, lp uintptr) uintptr {
 		if msg == tdnButtonClicked && int(wp) == bLang {
-			for i, x := range langs {
-				if x == lang {
-					lang = langs[(i+1)%len(langs)]
-					break
-				}
+			if l := pickLang(hwnd); l != "" && l != lang {
+				lang = l
+				navigate(hwnd, L().Name, unPage())
 			}
-			navigate(hwnd, L().Name, unPage())
 			return 1
 		}
 		return 0
@@ -478,7 +472,7 @@ func uninstallUI() {
 	cmd.Start()
 }
 func unPage() page {
-	return page{main: L().UnMain, content: L().UnText, buttons: []btn{{bLang, L().Lang}, {bPrimary, L().UnBtn}}, common: tdcbfCancel, defButton: idCancel}
+	return page{main: L().UnMain, content: L().UnText, buttons: []btn{{bLang, L().Lang + " ▾"}, {bPrimary, L().UnBtn}}, common: tdcbfCancel, defButton: idCancel}
 }
 
 func main() {

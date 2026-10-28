@@ -17,6 +17,11 @@ var (
 	kGetModule        = kernel32.NewProc("GetModuleHandleW")
 	kUILang           = kernel32.NewProc("GetUserDefaultUILanguage")
 	shell32           = syscall.NewLazyDLL("shell32.dll")
+	procCreatePopup   = user32.NewProc("CreatePopupMenu")
+	procAppendMenu    = user32.NewProc("AppendMenuW")
+	procTrackPopup    = user32.NewProc("TrackPopupMenu")
+	procDestroyMenu   = user32.NewProc("DestroyMenu")
+	procGetCursorPos  = user32.NewProc("GetCursorPos")
 	procShellExecute  = shell32.NewProc("ShellExecuteW")
 )
 
@@ -190,4 +195,29 @@ func marquee(hwnd uintptr) {
 }
 func openURL(u string) {
 	procShellExecute.Call(0, wstr("open"), wstr(u), 0, 0, 1)
+}
+
+// список языков — меню Windows под курсором (как выпадающий список)
+func pickLang(hwnd uintptr) string {
+	m, _, _ := procCreatePopup.Call()
+	if m == 0 {
+		return ""
+	}
+	defer procDestroyMenu.Call(m)
+	const mfString, mfChecked = 0x0000, 0x0008
+	for i, l := range langs {
+		f := uintptr(mfString)
+		if l == lang {
+			f |= mfChecked
+		}
+		procAppendMenu.Call(m, f, uintptr(i+1), wstr(langNames[l]))
+	}
+	var pt struct{ X, Y int32 }
+	procGetCursorPos.Call(uintptr(unsafe.Pointer(&pt)))
+	const tpmReturnCmd, tpmNoNotify = 0x0100, 0x0080
+	r, _, _ := procTrackPopup.Call(m, tpmReturnCmd|tpmNoNotify, uintptr(pt.X), uintptr(pt.Y), 0, hwnd, 0)
+	if r >= 1 && int(r) <= len(langs) {
+		return langs[r-1]
+	}
+	return ""
 }
