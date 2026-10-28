@@ -1,0 +1,32 @@
+{
+  "version": "1.2.5",
+  "channel": "test",
+  "date": "2026-10-28T11:12:45.031Z",
+  "notes": [
+    "Вход только по почте",
+    "Перенос на другой компьютер — только через «Выйти из аккаунта» на старом",
+    "Купить подписку — kok.blue/edit"
+  ],
+  "restart": false,
+  "components": {
+    "ffmpeg": {
+      "key": "10a2e045a898beb6db89abb7b4daa6043ab3231ffe536262801c03b879f7250c",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/ffmpeg-10a2e045a8.zip",
+      "sha256": "3414860c0523866b3117edcaa9756e7715e220784c223a71c7236f43c1ad563d",
+      "size": 57857487
+    },
+    "whisper": {
+      "key": "086bf8d237ac0dadc8ae54af069ed3517329d3346ef39130151332d3a91f6d61",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/whisper-086bf8d237.zip",
+      "sha256": "743572b080eafd6069e4bd64ad73f6c94a9c542e6018f871aac8dc1925f473b1",
+      "size": 3563629
+    },
+    "core": {
+      "key": "7a4f7906927817d3e994b21677211c23d3ee8e849f129a7e252814292a5debba",
+      "url": "https://raw.githubusercontent.com/KolenkeMedia/kok-edit-releases/main/files/core-1.2.5.zip",
+      "sha256": "90e20720508e26435f327df066271bbbd465d7e9ef1686a68df59c1e2a48dc1a",
+      "size": 128426,
+      "files": 32
+    }
+  }
+}
